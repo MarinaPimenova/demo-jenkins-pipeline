@@ -26,4 +26,4 @@ h2:
     enabled: true
 library:
   url: https://www.googleapis.com/books/v1/volumes
-  key: AIzaSyDIsbsXe7G1OkrFcGsgi_cAGGRiQ1gC_lI
+  key: ${GOOGLE_API_KEY}
