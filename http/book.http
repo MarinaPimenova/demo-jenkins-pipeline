@@ -1,0 +1,29 @@
+# 0760326576 The Gardener's Bedside Reader
+GET http://localhost:9094/book/0760326576
+Accept: application/json
+
+###
+## could add a book by ISBN (use any availably webservice to fetch and fill remain information about a book
+##(Author, Title, ISBN))
+# Failed request
+GET http://localhost:9094/book/0571082785
+Accept: application/json
+
+###
+GET http://localhost:9094/book/info/0760326576
+Accept: application/json
+
+###
+GET http://localhost:9094/books
+Accept: application/json
+
+###
+# Matrix varibales
+GET http://localhost:9094/books/ISBN=0760326576;author=Kari%20Cornell;addedDate=2020-07-14
+Accept: application/json
+
+###
+GET http://localhost:9094/book/upd/0760326576?amount=2
+Accept: application/json
+
+###
