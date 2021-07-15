@@ -9,7 +9,7 @@ pipeline {
     parameters {
         choice(name: 'Build tool: ',
         choices:['maven', 'gradle'],
-        description: 'Only maven is available. Gradle is under construction...'),
+        description: 'Only maven is available. Gradle is under construction...')
         gitParameter(
             branchFilter:   'origin/(.*)',
             defaultValue:   'master',
