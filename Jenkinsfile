@@ -5,6 +5,7 @@ pipeline {
         GITHUB_CREDS_ID     = 'jenkins-webhook'
         GOOGLE_API_KEY     = 'AIzaSyDIsbsXe7G1OkrFcGsgi_cAGGRiQ1gC_lI' //credentials('google-api-key')
     }
+
     parameters {
         choice(name: 'Build tool: ',
         choices:['maven', 'gradle'],
@@ -15,6 +16,7 @@ pipeline {
             name:           'BRANCH',
             type:           'PT_BRANCH')
     }
+
     stages {
         stage('Checkout') {
             steps {
