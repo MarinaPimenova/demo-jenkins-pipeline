@@ -29,6 +29,7 @@ pipeline {
                 echo 'Checkout..'
                 //git branch: params.BRANCH, url: env.GIT_REPO_URL, credentialsId: env.GITHUB_CREDS_ID
                 git branch: 'master', url: 'https://github.com/MarinaPimenova/demo-jenkins-pipeline.git', credentialsId: 'jenkins-webhook'
+                sh 'chmod +x jenkins/scripts/*'
             }
         }
         stage('Build') {
