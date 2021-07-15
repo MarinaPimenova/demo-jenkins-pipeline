@@ -15,10 +15,15 @@ import java.util.Map;
 
 @Service
 public class BookServiceImpl implements BookService {
+
+    private final GoogleBooksService googleBooksService;
+
+    private final BookRepository bookRepository;
     @Autowired
-    private GoogleBooksService googleBooksService;
-    @Autowired
-    private BookRepository bookRepository;
+    public BookServiceImpl(GoogleBooksService googleBooksService, BookRepository bookRepository) {
+        this.googleBooksService = googleBooksService;
+        this.bookRepository = bookRepository;
+    }
 
     @Transactional
     @Override
@@ -27,6 +32,7 @@ public class BookServiceImpl implements BookService {
         return bookRepository.save(book);
     }
 
+    @SuppressWarnings("uncheked")
     @Override
     public List<Book> getStoredBooks(Map<String, List<String>> matrixVars) {
         if(CollectionUtils.isEmpty(matrixVars)) {

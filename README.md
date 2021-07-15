@@ -1,6 +1,10 @@
-### 
+## CI/CD 
+### CI/CD using Jenkins (Self-hosted tool)
+Jenkinsfile
+### CI/CD AWS
 
-#### Book library
+
+#### Book library is app that should be deployed to Tomcat on EC2 instance
 #### Build and Run (for more see [Creating a Multi Module Project](https://github.com/spring-guides/gs-multi-module)):
 ```
 cd demo-pipeline-jenkins
