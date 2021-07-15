@@ -34,6 +34,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
+                sh "chmod +x ."
                 sh "./mvnw clean install -DskipTests"
                 archiveArtifacts artifacts: '**/target/*.jar', fingerprint: true
             }
