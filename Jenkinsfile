@@ -10,11 +10,13 @@ pipeline {
         choice(name: 'Build tool: ',
         choices:['maven', 'gradle'],
         description: 'Only maven is available. Gradle is under construction...')
+/*
         gitParameter(
             branchFilter:   'origin/(.*)',
             defaultValue:   'master',
             name:           'BRANCH',
             type:           'PT_BRANCH')
+ */
     }
 
     stages {
@@ -25,7 +27,8 @@ pipeline {
                 echo "Node name: ${env.NODE_NAME}"
                 sh 'printenv'
                 echo 'Checkout..'
-                git branch: params.BRANCH, env.GIT_REPO_URL, credentialsId: env.GITHUB_CREDS_ID
+                //git branch: params.BRANCH, env.GIT_REPO_URL, credentialsId: env.GITHUB_CREDS_ID
+                git branch: 'master', 'https://github.com/MarinaPimenova/demo-jenkins-pipeline.git', credentialsId: 'jenkins-webhook'
             }
         }
         stage('Build') {
@@ -48,7 +51,7 @@ pipeline {
               }
             }
             environment {
-                ENKINS_NODE_COOKIE=dontkill
+                JENKINS_NODE_COOKIE='dontkill'
             }
             steps {
                 echo 'Deploying....'
