@@ -35,10 +35,10 @@ agent any
                 echo 'Building..'
                 sh "pwd"
                 sh "ls -la"
-                sh "chmod +x ."
+                sh "chmod +x mvnw"
                 sh "ls -la"
 
-                //sh "./mvnw clean install -DskipTests"
+                sh "./mvnw clean install -DskipTests"
                 //archiveArtifacts artifacts: '**/target/*.jar', fingerprint: true
             }
         }
