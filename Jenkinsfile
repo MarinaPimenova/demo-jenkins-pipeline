@@ -1,10 +1,11 @@
 pipeline {
 
-    agent {
+agent any
+/*     agent {
        docker {
          image 'bibinwilson/jenkins-slave:latest'
        }
-    }
+    } */
     environment {
         GIT_REPO_URL        = 'https://github.com/MarinaPimenova/demo-jenkins-pipeline.git'
         GITHUB_CREDS_ID     = 'jenkins-webhook'
@@ -32,9 +33,13 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
+                sh "pwd"
+                sh "ls -la"
                 sh "chmod +x ."
-                sh "./mvnw clean install -DskipTests"
-                archiveArtifacts artifacts: '**/target/*.jar', fingerprint: true
+                sh "ls -la"
+
+                //sh "./mvnw clean install -DskipTests"
+                //archiveArtifacts artifacts: '**/target/*.jar', fingerprint: true
             }
         }
         stage('Test') {
