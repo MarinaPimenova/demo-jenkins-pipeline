@@ -25,7 +25,7 @@ agent any
                 echo "Job name: ${env.JOB_NAME}"
                 echo "Node name: ${env.NODE_NAME}"
                 sh 'printenv'
-                echo 'Checkout..'
+
                 //git branch: params.BRANCH, url: env.GIT_REPO_URL, credentialsId: env.GITHUB_CREDS_ID
                 //git branch: 'master', url: 'https://github.com/MarinaPimenova/demo-jenkins-pipeline.git', credentialsId: 'jenkins-webhook'
             }
@@ -39,13 +39,13 @@ agent any
                 sh "ls -la"
 
                 sh "./mvnw clean install -DskipTests"
-                //archiveArtifacts artifacts: '**/target/*.jar', fingerprint: true
+                archiveArtifacts artifacts: '**/target/*.jar', fingerprint: true
             }
         }
         stage('Test') {
             steps {
                 echo 'Testing..'
-                sh "./mvnw test"
+                sh "./mvnw test -Punit"
             }
         }
         stage('Deploy') {
