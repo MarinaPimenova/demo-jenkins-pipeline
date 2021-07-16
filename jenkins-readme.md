@@ -12,7 +12,7 @@ docker run --name jenkins --rm -u root -d -p 8080:8080 -p 50000:50000 -v /var/ru
 
 #### 2.4 Create build job (name: release) -
 
-2.4.1 Should build when SCM has changes - 
+2.4.1 Should build when SCM has changes - https://github.com/tinexw/cdc-with-pact/issues/6
 
 2.4.2 Job should be parameterized with maven or grade (user should be able to choose it in job parameter)
 
