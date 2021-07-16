@@ -2,7 +2,6 @@ node {
     stage 'Clone the project'
     git 'https://github.com/MarinaPimenova/demo-jenkins-pipeline.git'
 
-    dir('demo-jenkins-pipeline') {
         stage("Compilation") {
             sh "./mvnw clean install -DskipTests"
         }
@@ -44,5 +43,4 @@ node {
                 }
             }
         }
-    }
 }
