@@ -61,7 +61,8 @@ agent any
             }
             steps {
                 echo 'Deploying....' //ssh -i "ec2-mp-ubuntu.pem" ubuntu@ec2-44-193-25-229.compute-1.amazonaws.com
-                sh 'echo $EC2_PEM >> ec2-mp-ubuntu.pem' //http:/ec2-44-193-25-229.compute-1.amazonaws.com:8080/
+                sh "pwd"
+                sh 'echo ${EC2_PEM} >> ec2-mp-ubuntu.pem' //http:/ec2-44-193-25-229.compute-1.amazonaws.com:8080/
                 sh 'scp -P 22 -i ./ec2-mp-ubuntu.pem **/target/*.war ubuntu@ec2-44-193-25-229.compute-1.amazonaws.com:/opt/tomcat/webapps/demo.war'
                 //sh 'nohup ./mvnw spring-boot:run -Dserver.port=8989 -DGOOGLE_API_KEY=$GOOGLE_API_KEY &'
                 //nohup java -DYOUR_ACCESS_KEY= -DYOUR_SECRET_KEY= -jar /home/ubuntu/mp-order-report.jar &
