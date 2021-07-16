@@ -6,7 +6,7 @@ agent ec2
          image 'bibinwilson/jenkins-slave:latest'
        }
     } */
-    //'AIzaSyDIsbsXe7G1OkrFcGsgi_cAGGRiQ1gC_lI'
+
     environment {
         GIT_REPO_URL        = 'https://github.com/MarinaPimenova/demo-jenkins-pipeline.git'
         GITHUB_CREDS_ID     = 'jenkins-webhook'
